@@ -17,6 +17,7 @@
         </el-upload>
         <el-divider direction="vertical" style="margin-top: 10px" />
         <el-button size="large" type="primary" link icon="download" @click="getTemplate">下载模板</el-button>
+        <el-button size="large" type="primary" link icon="present" @click="notice">发送邮件</el-button>
       </div>
       <div class="gva-button-list">
         <!--        <el-button size="large" type="primary" link icon="plus" @click="addMenu('0')">新建转录组</el-button>
@@ -246,7 +247,7 @@ import warningBar from '@/components/warningBar/warningBar.vue'
 import { useUserStore } from '@/pinia/modules/user'
 import { reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { addAnaTrs, getAnaTrs, downloadPDF, downloadTemplate, getAnaTrsById, updateAnaTrs } from '@/api/transcriptome'
+import { addAnaTrs, getAnaTrs, downloadPDF, downloadTemplate, getAnaTrsById, updateAnaTrs, sendNotification } from '@/api/transcriptome'
 import { toSQLLine } from '@/utils/stringFun'
 const path = ref(import.meta.env.VITE_BASE_API)
 const rules = reactive({
@@ -521,6 +522,10 @@ const getPdf = async(id) => {
 // 下载模板
 const getTemplate = async() => {
   await downloadTemplate('template.xlsx')
+}
+// 发送邮件
+const notice = async() => {
+  sendNotification()
 }
 
 // el-dialog弹框关闭操作

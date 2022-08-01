@@ -105,3 +105,14 @@ export const updateAnaTrs = (data) => {
     data
   })
 }
+// @Summary 发送邮件
+// @Produce  application/json
+// @Param menu Object
+// @Router /menu/sendNotification [post]
+export const sendNotification = (data) => {
+  return service({
+    url: '/trs/sendNotification',
+    method: 'get',
+    data
+  })
+}
