@@ -47,7 +47,7 @@ export const downloadPDF = (fileName) => {
 }
 
 // @Tags excel
-// @Summary 下载导入相关excel的模板
+// @Summary 下载excel的模板
 // @Security ApiKeyAuth
 // @accept multipart/form-data
 // @Produce  application/json
@@ -94,10 +94,10 @@ export const importExcel = () => {
   })
 }
 
-// @Summary 修改trs列表
+// @Summary 修改trs
 // @Produce  application/json
 // @Param menu Object
-// @Router /menu/updateBaseMenu [post]
+// @Router /menu/updateAnaTrs [post]
 export const updateAnaTrs = (data) => {
   return service({
     url: '/trs/updateAnaTrs',
